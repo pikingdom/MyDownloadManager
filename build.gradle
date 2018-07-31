@@ -20,6 +20,13 @@ allprojects {
         google()
         jcenter()
     }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << '-Xbootclasspath/p:dynamic/libs/framework_2_2_classes.jar'
+        }
+    }
+
 }
 
 task clean(type: Delete) {
